@@ -1,0 +1,3 @@
+- 试着用中文和英文交流
+- porcupine/hedgehog dilemma, what do you think of it
+- anxiety

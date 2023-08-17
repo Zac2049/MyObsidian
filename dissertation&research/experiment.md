@@ -1,0 +1,20 @@
+- 排除gf本身的问题，肯定是网络设计哪里有问题
+- 使用gf![[progress02091.png]]
+- 未使用gf![[progress0209.png]]
+- 将encoder修改成conv2d层次![[Pasted image 20230209213657.png]]
+- ![[progress02092.png]]
+- GFUNet ACDC
+- depth=[1,1,1,1,1]  最高0.899  12s/epoch（depth指每一层的GFBlock的数量，命名继承于GFNet![[progress0210.png]]
+- depth=[2,2,2,4,2] 最高0.899  17s/epoch![[progress.png]]
+- 有filter的层数对模型的影响（算消融实验？
+	- 将最高若干层的filter部分换成dwconv
+	- 最后两层才有gf
+	- 参数变化不大
+- 将block中的MLP（原先GFNet中的设计）换成dwconv
+	- 参数量改变不大
+- decoder部分，原有的UNetrUPBlock换成最简单的上采样
+	- flops减小，参数量上升，但精度下降
+	- 证明UNetrUpBlock确实有效
+- 采用merge策略![[progress (1).png]]
+	- <85
+	- 不排除自身实现问题

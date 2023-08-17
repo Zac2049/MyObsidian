@@ -1,0 +1,6 @@
+- [世卫组织公布2000-2019年全球死亡和残疾主要原因 (who.int)](https://www.who.int/zh/news/item/09-12-2020-who-reveals-leading-causes-of-death-and-disability-worldwide-2000-2019)
+- [Report on Cardiovascular Health and Diseases in China 2021: An Updated Summary - ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0895398822001076)
+- [Transformers in Medical Image Analysis: A Review - ScienceDirect](https://www.sciencedirect.com/science/article/pii/S2667102622000717#:~:text=In%20the%20field%20of%20medical,segmentation%2C%20detection%2C%20and%20diagnosis.)
+- 多任务的试过没有
+- 影像组学和深度学习结合
+- 心脏的勾画问题
