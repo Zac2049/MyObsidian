@@ -154,6 +154,22 @@ func binarySearch(arr []int, target int) int {
 }
 ```
 
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+
+    while left <= right:
+        mid = left + (right - left) // 2  # 防止整数溢出
+
+        if arr[mid] == target:
+            return mid  # 找到目标，返回索引
+        elif arr[mid] < target:
+            left = mid + 1  # 目标在右半部分
+        else:
+            right = mid - 1  # 目标在左半部分
+
+    return -1  # 目标不在数组中
+```
 自己实现的二分查找和`sort.Search`函数的主要区别在于实现方式和一些细节问题。以下是一些需要注意的问题：
 
 1.  实现方式：自己实现的二分查找通常需要手动编写查找逻辑和循环控制结构，而`sort.Search`函数是一个高级抽象，可以直接传递一个函数来实现查找逻辑，大大减少了编写代码的工作量。
@@ -194,6 +210,18 @@ while cur!=nil {
 return pre
 ```
 
+
+```python
+# 建议写成闭包函数，无需返回任何值，两边结点已经反转
+def reverseList(head: ListNode):
+	pre = None # 
+	cur = head
+	while cur:
+		next = cur.next
+		cur.next = pre
+		pre = cur
+		cur = next
+```
 k组反转链表注意点：
 
 - 先求链表长度，逐个减k进行反转，不足k跳出循环
@@ -227,6 +255,107 @@ direction is 2D list`[[0,1],[1,0],[0.-1],[-1.0]]`. `[][0]` presents the row dire
 
 同理，也可以用2D list表示$3\times3$ neighbors
 
-使用`mp = collections.defaultdict(list)` 创建带有默认值的dict，这里是默认值为空list，如果括号里为int，默认值为0
+- 使用`mp = collections.defaultdict(list)` 创建带有默认值的dict，这里是默认值为空list，如果括号里为int，默认值为0
 
-hashable的数据结构不能用做key，但tuple这种可以，所以有时候能把list转成tuple当作key
+- hashable的数据结构不能用做key，但tuple这种可以，所以有时候能把list转成tuple当作key
+
+- python使用math.inf表示最大数，-math.inf最小数
+
+- 最小栈问题，用一个栈保存每个存入状态的最小值，初始为inf，插入取min，取出$O(1)$，空间换时间
+
+- 计算器问题，记录符号的stack，和当前符号变量，遇到-反转，（入栈，）出栈
+
+
+- 链表右移k个结点。可以连接首尾，head移动n - k % n
+
+- 从前序与中序遍历序列构造二叉树，从中序与后序遍历序列构造二叉树 问题
+```
+[ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
+[ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]
+```
+根据这样进行分治，在前序和后序中找到根节点，构建根节点，划分左右区间构建左右子树。
+一个注意点
+ ```python
+# 1.
+# 构造哈希映射，帮助我们快速定位根节点
+index = {element: i for i, element in enumerate(inorder)}
+# 2.
+# 得到左子树中的节点数目，方便划分区间
+size_left_subtree = inorder_root - inorder_left
+```
+
+- 二叉树中的最大路径和问题，用全局变量维护最大路径和`maxSum`，其等于自己和`root.val + leftContribution + rightContribution`，所谓贡献就是非零单向路径和
+
+
+- Python 中的整数、浮点数和其他数据类型的最小值可以通过一些特定的属性或函数来表示。
+
+1. **整数 (int)**:
+
+   Python 中的整数类型 (`int`) 的最小值是由系统架构决定的。你可以使用 `sys` 模块来获取整数的最小值。示例如下：
+
+   ```python
+   import sys
+   min_int = sys.maxsize  # 获取系统中整数的最小值
+   ```
+
+   `sys.maxsize` 返回当前平台上的最大整数值，通常是 2^31 - 1 或 2^63 - 1，取决于你的操作系统和 Python 版本。
+
+2. **浮点数 (float)**:
+
+   Python 中的浮点数 (`float`) 通常使用特殊常数来表示最小值和最大值。最小的正浮点数可以使用 `sys.float_info` 来获取：
+
+   ```python
+   import sys
+   min_float = sys.float_info.min  # 获取最小的正浮点数
+   ```
+
+   这将返回表示最小正浮点数的值，通常是约 2.2250738585072014e-308。
+
+3. **其他类型**:
+
+   对于其他数据类型，例如字符串、布尔值等，它们没有显式的“最小值”概念，因为它们的取值范围通常由数据类型本身的定义决定。例如，字符串可以为空字符串 (`""`)，布尔值可以是 `True` 或 `False`。
+
+需要注意的是，Python 的整数和浮点数通常没有明确的“最小值”表示负无穷大（negative infinity），因为它们可以取负数。如果需要表示负无穷大，可以使用 `float('-inf')` 来表示。
+
+```python
+negative_infinity = float('-inf')  # 表示负无穷大
+```
+
+最小值和最大值的确切表示在不同的 Python 版本和系统上可能会有所不同，因此在实际应用中，最好使用 `sys` 和 `sys.float_info` 来获取这些信息，以确保准确性。
+
+
+- 如何记录树的深度？层次遍历时，保存结点的同时也保存一个深度变量，用dict结合
+```python
+rightmost_value_at_depth = dict() # 深度为索引，存放节点的值
+max_depth = -1
+
+queue = deque([(root, 0)])
+while queue:
+	node, depth = queue.popleft()
+
+	if node is not None:
+		# 维护二叉树的最大深度
+		max_depth = max(max_depth, depth)
+
+		# 由于每一层最后一个访问到的节点才是我们要的答案，因此不断更新对应深度的信息即可
+		rightmost_value_at_depth[depth] = node.val
+
+		queue.append((node.left, depth + 1))
+		queue.append((node.right, depth + 1))
+
+```
+
+- 关于python的输入
+```python
+n,k = sys.stdin.readline().split()
+nums = []
+for _ in range(n):
+    num = map(int, sys.stdin.readline().split())
+    nums.append(num)
+
+# or
+# for line in sys.stdin.readlines():
+for line in sys.stdin:
+    line=line.split()
+    temp=list(map(int,line))
+```

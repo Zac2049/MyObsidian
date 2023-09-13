@@ -4,59 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "6ac85b5f696a7199",
+        "id": "4b70b63716c83b06",
         "type": "tabs",
         "children": [
           {
-            "id": "042b2f0c983d25ae",
+            "id": "3cd7052d23dabff1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "interview/LeeCode Points.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8afe0a8553b56a06",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "interview/LeeCode Points.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e7694fc9366ea35f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "projects/kaggle/hubmap.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "249245684f24b19a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "interview/LeeCode Points.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -130,6 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "projects/cuda-programming.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,6 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "projects/cuda-programming.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +128,19 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "projects/cuda-programming.pdf"
+              }
+            }
+          },
+          {
+            "id": "c58012ea73aa83e8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
             }
           }
         ]
@@ -185,42 +158,45 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:New Excalidraw drawing": false
+      "markdown-importer:Open format converter": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "683c398829af9b34",
   "lastOpenFiles": [
-    "interview/LeeCode Points.md",
-    "interview/LeetCode Notes.md",
     "interview/ML&Math.md",
+    "projects/cuda-programming.pdf",
+    "interview/CV&NLP.md",
+    "interview/LeeCode Points.md",
+    "other/教资笔记.md",
+    "projects/MR caidienergy.md",
+    "other/A Document earning A hundred.md",
+    "dissertation&research/Untitled.canvas",
+    "Excalidraw/Drawing 2023-09-09 18.33.30.excalidraw.md",
+    "interview/LeetCode Notes.md",
+    "interview/Test question.md",
+    "other/To MR.md",
+    "interview/Self-Introduction.md",
+    "interview/Python Points.md",
+    "other/BNU掼蛋手册.md",
+    "Pasted image 20230827010451.png",
     "other/chat with Samantha.md",
-    "projects/kaggle/hubmap.md",
     "prompt template.md",
     "Thorough.md",
+    "interview/C++ Points.md",
+    "interview/Docker&Kubernetes&Linux.md",
+    "interview/Golang Points.md",
     "interview/MySQL&Redis.md",
+    "projects/kaggle/hubmap.md",
+    "README.md",
     "interview/Projects.md",
-    "interview/Python Points.md",
-    "interview/Self-Introduction.md",
-    "interview/Test question.md",
     "pasted/Pasted image 20230731161229.png",
     "dissertation&research/text.md",
-    "interview/C++ Points.md",
-    "interview/Golang Points.md",
-    "interview/Docker&Kubernetes&Linux.md",
     "interview/计算机网络经典面试题.md",
     "interview/面经.pdf",
-    "dissertation&research/Research.md",
-    "dissertation&research/reference.md",
-    "dissertation&research/Preprocess Medical Image.md",
-    "dissertation&research/experiment.md",
-    "dissertation&research/GFUNet.md",
-    "dissertation&research/lab server.md",
-    "dissertation&research/Large Model Medical System(CLIP.md",
-    "interview/CV&NLP.md",
     "projects/backend",
     "pasted/Pasted image 20230623101333.png",
     "Untitled.canvas",
-    "projects/games/构思.md",
     "projects/kaggle",
     "pasted/Pasted image 20230623112017.png",
     "pasted/Pasted image 20230623111940.png",
@@ -232,10 +208,8 @@
     "pasted/progress.png",
     "pasted/progress02092.png",
     "pasted/progress02091.png",
-    "pasted/progress0210.png",
     "pasted",
     "projects/Android",
-    "projects/games",
-    "DL"
+    "projects/games"
   ]
 }
