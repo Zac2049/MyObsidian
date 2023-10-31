@@ -345,7 +345,27 @@ while queue:
 
 ```
 
+```python
+# 实际上每次计算size就可以求上一层的宽度
+def levelOrder(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        queue = [root]
+        order = []
+        while queue:
+            size = len(queue)
+            for _ in range(size):
+                curr = queue.pop(0)
+                order.append(curr.val)
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+        return order
+```
 - 关于python的输入
+==注意`sys.stdin.readline().split()`返回的是list
+`sys.stdin.readline()`返回的是str==
 ```python
 n,k = sys.stdin.readline().split()
 nums = []
@@ -359,3 +379,86 @@ for line in sys.stdin:
     line=line.split()
     temp=list(map(int,line))
 ```
+
+- 克隆图的核心，哈希和dfs
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+from typing import Optional
+class Solution:
+    def __init__(self):
+        self.visited = {}
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        
+        if not node:
+            return
+        
+        if node in visited:
+            return visited[node]
+
+        clone_node = Node(node.val, [])
+
+        self.visited[node] = clone_node
+
+        if node.neighbors:
+            clone_node.neighbors = [self.cloneGraph(n) for n in neighbors]
+
+        return clone_node
+```
+
+- python字符转int，"ordinal"（序数）
+```python
+char = 'A' 
+integer_value = ord(char)
+```
+
+### 位运算
+
+1. **按位与（&）**：将两个二进制数的对应位进行与操作，只有在两个操作数的对应位都是 1 的时候，结果位才是 1。例如，`1010 & 1100` 将得到 `1000`。
+
+2. **按位或（|）**：将两个二进制数的对应位进行或操作，只要两个操作数的对应位中至少有一个是 1，结果位就是 1。例如，`1010 | 1100` 将得到 `1110`。
+
+3. **按位异或（^）**：将两个二进制数的对应位进行异或操作，只有在两个操作数的对应位不相同的情况下，结果位才是 1。例如，`1010 ^ 1100` 将得到 `0110`。
+
+4. **按位取反（~）**：将一个二进制数的每一位进行取反操作，即 0 变为 1，1 变为 0。例如，`~1010` 将得到 `0101`。
+
+5. **左移（<<）**：将一个二进制数的所有位向左移动指定的位数。例如，`1010 << 2` 将得到 `101000`。
+
+6. **右移（>>）**：将一个二进制数的所有位向右移动指定的位数。右移操作有两种形式，逻辑右移和算术右移。逻辑右移用 0 填充左边的空位，而算术右移用符号位填充左边的空位。
+
+
+位运算在解决算法和编程问题时非常有用。以下是一些位运算技巧，适用于解决各种算法和编程挑战：
+
+1. **按位与（&）操作**：可以用于提取某一位上的值，清除特定位上的值，或者检查特定位是否为1。
+
+2. **按位或（|）操作**：用于将某一位设置为1，或者将多个位上的值合并到一个整数。
+
+3. **按位异或（^）操作**：用于交换两个变量的值，或者用于在不引入额外变量的情况下交换数组中的元素。
+
+4. **左移（<<）和右移（>>)操作**：用于将一个数左移或右移n位。左移相当于将原数乘以2^n，右移相当于将原数除以2^n。这些操作在优化计算2的幂次方、或者在某些位运算技巧中非常有用。
+
+5. **清除最低位的1**：`n & (n - 1)` 可以用来清除二进制表示中最低位的1。
+
+6. **获取最低位的1**：`n & -n` 可以用来获取最低位的1。
+
+7. **检查奇偶性**：`n & 1` 可以用来检查一个整数是奇数还是偶数。如果结果为1，是奇数；如果结果为0，是偶数。
+
+8. **将整数转为二进制字符串**：`bin(n)` 可以将整数n转换为其二进制表示的字符串。
+
+9. **将字符串转为整数**：`int("1010", 2)` 可以将二进制字符串"1010"转为整数。
+
+10. **检查位是否被设置**：`(n & (1 << i)) != 0` 可以检查第i位是否被设置。
+
+11. **设置位**：`n | (1 << i)` 可以将第i位设置为1。
+
+12. **清除位**：`n & ~(1 << i)` 可以将第i位清零。
+
+13. **更新位**：`(n & ~(1 << i)) | (bit << i)` 可以更新第i位的值为bit。
+
+14. **交换两个数的特定位**：可以使用按位操作和位掩码来交换两个数的特定位。

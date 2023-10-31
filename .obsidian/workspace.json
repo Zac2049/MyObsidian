@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "4b70b63716c83b06",
+        "id": "f51f59d272ae7cbe",
         "type": "tabs",
         "children": [
           {
-            "id": "3cd7052d23dabff1",
+            "id": "451212e5f3f945f6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "interview/LeeCode Points.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "projects/cuda-programming.pdf",
+                "file": "interview/LeeCode Points.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "projects/cuda-programming.pdf",
+                "file": "interview/LeeCode Points.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "projects/cuda-programming.pdf"
+                "file": "interview/LeeCode Points.md"
               }
             }
           },
@@ -162,52 +166,53 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "683c398829af9b34",
+  "active": "451212e5f3f945f6",
   "lastOpenFiles": [
-    "interview/ML&Math.md",
-    "projects/cuda-programming.pdf",
-    "interview/CV&NLP.md",
-    "interview/LeeCode Points.md",
-    "other/教资笔记.md",
-    "projects/MR caidienergy.md",
-    "other/A Document earning A hundred.md",
-    "dissertation&research/Untitled.canvas",
-    "Excalidraw/Drawing 2023-09-09 18.33.30.excalidraw.md",
     "interview/LeetCode Notes.md",
-    "interview/Test question.md",
-    "other/To MR.md",
-    "interview/Self-Introduction.md",
-    "interview/Python Points.md",
-    "other/BNU掼蛋手册.md",
-    "Pasted image 20230827010451.png",
-    "other/chat with Samantha.md",
-    "prompt template.md",
-    "Thorough.md",
-    "interview/C++ Points.md",
-    "interview/Docker&Kubernetes&Linux.md",
-    "interview/Golang Points.md",
-    "interview/MySQL&Redis.md",
-    "projects/kaggle/hubmap.md",
-    "README.md",
-    "interview/Projects.md",
-    "pasted/Pasted image 20230731161229.png",
+    "interview/LeeCode Points.md",
+    "interview/面试标准问答.md",
+    "dissertation&research/experiment.md",
+    "dissertation&research/GFUNet.md",
+    "dissertation&research/lab server.md",
+    "dissertation&research/Large Model Medical System(CLIP.md",
+    "dissertation&research/Preprocess Medical Image.md",
+    "dissertation&research/reference.md",
+    "dissertation&research/Research.md",
     "dissertation&research/text.md",
     "interview/计算机网络经典面试题.md",
+    "interview/Self-Introduction.md",
+    "interview/ML&Math.md",
+    "interview/CV&NLP.md",
+    "interview/C++ Points.md",
     "interview/面经.pdf",
+    "Obsidian Template.md",
+    "interview/Golang Points.md",
+    "interview/MySQL&Redis.md",
+    "interview/Projects.md",
+    "interview/Python Points.md",
+    "interview/Test question.md",
+    "pasted/Pasted image 20230920213350.png",
+    "pasted/Pasted image 20231013224414.png",
+    "interview/Docker&Kubernetes&Linux.md",
+    "other/chat with Samantha.md",
+    "other/To MR.md",
+    "other/BNU掼蛋手册.md",
+    "pasted/Pasted image 20230920213857.png",
+    "pasted/Pasted image 20230920213420.png",
+    "Pasted image 20230920213438.png",
+    "pasted/Pasted image 20230827010451.png",
+    "projects/cuda-programming.pdf",
+    "dissertation&research/Untitled.canvas",
+    "pasted/Pasted image 20230731161229.png",
     "projects/backend",
     "pasted/Pasted image 20230623101333.png",
     "Untitled.canvas",
     "projects/kaggle",
     "pasted/Pasted image 20230623112017.png",
     "pasted/Pasted image 20230623111940.png",
-    "pasted/Pasted image 20230623111726.png",
-    "pasted/Pasted image 20230612164444.png",
     "projects/Android/211300774.pdf",
     "projects/Android/211300774(1).pdf",
     "projects/Android/2015-GayaUKM-BI-Final.pdf",
-    "pasted/progress.png",
-    "pasted/progress02092.png",
-    "pasted/progress02091.png",
     "pasted",
     "projects/Android",
     "projects/games"
