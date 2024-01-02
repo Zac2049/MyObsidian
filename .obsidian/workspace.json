@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f51f59d272ae7cbe",
+        "id": "a5de2c0dc5bd294b",
         "type": "tabs",
         "children": [
           {
-            "id": "451212e5f3f945f6",
+            "id": "e70494766531c826",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "interview/项目介绍&简历.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"excalidraw-plugin\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,14 +93,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "interview/项目介绍&简历.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "interview/项目介绍&简历.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/LeeCode Points.md"
+                "file": "interview/项目介绍&简历.md"
               }
             }
           },
@@ -147,7 +147,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -166,50 +167,49 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "451212e5f3f945f6",
+  "active": "e70494766531c826",
   "lastOpenFiles": [
-    "interview/LeetCode Notes.md",
-    "interview/LeeCode Points.md",
     "interview/面试标准问答.md",
+    "interview/面经.pdf",
+    "interview/计算机网络经典面试题.md",
+    "interview/LeeCode Points.md",
+    "interview/项目介绍&简历.md",
+    "Pasted image 20231204133221.png",
+    "Pasted image 20231204133212.png",
+    "pasted/Pasted image 20231204133149.png",
+    "interview/C++ Points.md",
+    "interview/CV&NLP.md",
+    "interview/数据库MySQL&Redis.md",
+    "pasted/Pasted image 20231106195542.png",
+    "Obsidian Template.md",
+    "pasted/Pasted image 20231106195546.png",
+    "pasted/Pasted image 20231106195601.png",
+    "README.md",
+    "prompt template.md",
+    "dissertation&research/Large Model Medical System(CLIP.md",
+    "Thorough.md",
     "dissertation&research/experiment.md",
+    "interview/Docker&Kubernetes&Linux.md",
+    "interview/Golang Points.md",
+    "interview/LeetCode Notes.md",
+    "other/李鹏辉.md",
+    "dissertation&research/Preprocess Medical Image.md",
+    "dissertation&research/Research.md",
+    "interview/Python Points.md",
+    "interview/ML&Math.md",
     "dissertation&research/GFUNet.md",
     "dissertation&research/lab server.md",
-    "dissertation&research/Large Model Medical System(CLIP.md",
-    "dissertation&research/Preprocess Medical Image.md",
     "dissertation&research/reference.md",
-    "dissertation&research/Research.md",
     "dissertation&research/text.md",
-    "interview/计算机网络经典面试题.md",
-    "interview/Self-Introduction.md",
-    "interview/ML&Math.md",
-    "interview/CV&NLP.md",
-    "interview/C++ Points.md",
-    "interview/面经.pdf",
-    "Obsidian Template.md",
-    "interview/Golang Points.md",
-    "interview/MySQL&Redis.md",
-    "interview/Projects.md",
-    "interview/Python Points.md",
-    "interview/Test question.md",
     "pasted/Pasted image 20230920213350.png",
     "pasted/Pasted image 20231013224414.png",
-    "interview/Docker&Kubernetes&Linux.md",
-    "other/chat with Samantha.md",
-    "other/To MR.md",
-    "other/BNU掼蛋手册.md",
     "pasted/Pasted image 20230920213857.png",
     "pasted/Pasted image 20230920213420.png",
-    "Pasted image 20230920213438.png",
-    "pasted/Pasted image 20230827010451.png",
     "projects/cuda-programming.pdf",
     "dissertation&research/Untitled.canvas",
-    "pasted/Pasted image 20230731161229.png",
     "projects/backend",
-    "pasted/Pasted image 20230623101333.png",
     "Untitled.canvas",
     "projects/kaggle",
-    "pasted/Pasted image 20230623112017.png",
-    "pasted/Pasted image 20230623111940.png",
     "projects/Android/211300774.pdf",
     "projects/Android/211300774(1).pdf",
     "projects/Android/2015-GayaUKM-BI-Final.pdf",

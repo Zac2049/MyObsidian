@@ -1,3 +1,4 @@
+### Use Golang
 - `unicode.IsDigit`
 - `strings.Split(s, " ")`
 - `strings.HasPrefix`
@@ -365,7 +366,7 @@ def levelOrder(self, root: TreeNode) -> List[int]:
 ```
 - 关于python的输入
 ==注意`sys.stdin.readline().split()`返回的是list
-`sys.stdin.readline()`返回的是str==
+`sys.stdin.readline()`返回的是str，一般会多一个回车符==
 ```python
 n,k = sys.stdin.readline().split()
 nums = []
@@ -432,33 +433,150 @@ integer_value = ord(char)
 
 6. **右移（>>）**：将一个二进制数的所有位向右移动指定的位数。右移操作有两种形式，逻辑右移和算术右移。逻辑右移用 0 填充左边的空位，而算术右移用符号位填充左边的空位。
 
+实现二进制字符串按位加法：
+```python
+class Solution:
+    def addBinary(self, a, b) -> str:
+        x, y = int(a, 2), int(b, 2)
+        while y:
+            answer = x ^ y
+            carry = (x & y) << 1
+            x, y = answer, carry
+        return bin(x)[2:]
+```
+
 
 位运算在解决算法和编程问题时非常有用。以下是一些位运算技巧，适用于解决各种算法和编程挑战：
 
-1. **按位与（&）操作**：可以用于提取某一位上的值，清除特定位上的值，或者检查特定位是否为1。
+1. **按位与（&）操作**：可以用于==提取==某一位上的值，==清除==特定位上的值，或者检查特定位是否为1。
+	& 不一样的位 表示==清除==
+1. **按位或（|）操作**：用于将某一位设置为1，或者将多个位上的值合并到一个整数。
+	| 1 表示==设置1==
+1. **按位异或（^）操作**：用于交换两个变量的值，或者用于在不引入额外变量的情况下交换数组中的元素。
+	^ 表示==位加==
+1. **左移（<<）和右移（>>)操作**：用于将一个数左移或右移n位。左移相当于将原数乘以2^n，右移相当于将原数除以2^n。这些操作在优化计算2的幂次方、或者在某些位运算技巧中非常有用。
 
-2. **按位或（|）操作**：用于将某一位设置为1，或者将多个位上的值合并到一个整数。
+2. **清除最低位的1**：`n & (n - 1)` 可以用来清除二进制表示中最低位的1。
 
-3. **按位异或（^）操作**：用于交换两个变量的值，或者用于在不引入额外变量的情况下交换数组中的元素。
+3. **获取最低位的1**：`n & -n` 可以用来获取最低位的1。
 
-4. **左移（<<）和右移（>>)操作**：用于将一个数左移或右移n位。左移相当于将原数乘以2^n，右移相当于将原数除以2^n。这些操作在优化计算2的幂次方、或者在某些位运算技巧中非常有用。
+4. **检查奇偶性**：`n & 1` 可以用来检查一个整数是奇数还是偶数。如果结果为1，是奇数；如果结果为0，是偶数。
 
-5. **清除最低位的1**：`n & (n - 1)` 可以用来清除二进制表示中最低位的1。
+5. **将整数转为二进制字符串**：`bin(n)` 可以将整数n转换为其二进制表示的字符串。
 
-6. **获取最低位的1**：`n & -n` 可以用来获取最低位的1。
+6. **将字符串转为整数**：`int("1010", 2)` 可以将二进制字符串"1010"转为整数。
 
-7. **检查奇偶性**：`n & 1` 可以用来检查一个整数是奇数还是偶数。如果结果为1，是奇数；如果结果为0，是偶数。
+7. **检查位是否被设置**：`(n & (1 << i)) != 0` 可以检查第i位是否被设置。
 
-8. **将整数转为二进制字符串**：`bin(n)` 可以将整数n转换为其二进制表示的字符串。
+8. **设置位**：`n | (1 << i)` 可以将第i位设置为1。
 
-9. **将字符串转为整数**：`int("1010", 2)` 可以将二进制字符串"1010"转为整数。
+9. **清除位**：`n & ~(1 << i)` 可以将第i位清零。
 
-10. **检查位是否被设置**：`(n & (1 << i)) != 0` 可以检查第i位是否被设置。
+10. **更新位**：`(n & ~(1 << i)) | (bit << i)` 可以更新第i位的值为bit。
 
-11. **设置位**：`n | (1 << i)` 可以将第i位设置为1。
+11. **交换两个数的特定位**：可以使用按位操作和位掩码来交换两个数的特定位。
 
-12. **清除位**：`n & ~(1 << i)` 可以将第i位清零。
+#### 搜索旋转数组最小值：
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        n = len(nums)
+        left, right = 0, n-1
 
-13. **更新位**：`(n & ~(1 << i)) | (bit << i)` 可以更新第i位的值为bit。
+        while left < right :
+            mid = (left + right)//2
+            if nums[mid] < nums[right] :
+                right = mid
+            else:
+                left = mid + 1    
+# 最后输出已经暗示left为目标指针，right为开区间
 
-14. **交换两个数的特定位**：可以使用按位操作和位掩码来交换两个数的特定位。
+        return nums[left]
+```
+
+类似：
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if not nums:
+            return -1
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[0] <= nums[mid]:
+                if nums[0] <= target < nums[mid]:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            else:
+                if nums[mid] < target <= nums[len(nums) - 1]:
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return -1
+```
+
+#### 银行家算法 贪心+堆排序
+```python
+class Solution:
+    def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+    # k次根据，手中的资产无偿得到利益，w初始资产
+        if w > max(capital) :
+            return w + sum(nlargest(k, profits))
+
+        n = len(profits)
+        cur = 0
+        arr = [(capital[i], profits[i]) for i in range(n) ]
+        arr.sort(key = lambda x: x[0])
+
+        pq = []
+
+        for _ in range(k):
+            while cur < n and arr[cur][0] <= w:
+                heappush(pq, -arr[cur][1]) # heapq默认完成小根堆，用-可以表示大根堆的关系
+                cur += 1
+            
+            if pq:
+                w -= heappop(pq)
+            else:
+                break
+        
+        return w
+
+```
+
+### DP相关
+##### 最大和的连续子数组
+以下是一个Python实现：
+
+```python
+def max_subarray_sum(nums):
+    if not nums:
+        return 0
+
+    current_sum = max_sum = nums[0]
+
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+
+    return max_sum
+
+# 例子
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+result = max_subarray_sum(arr)
+print(result)
+```
+
+这个函数 `max_subarray_sum` 接受一个整数数组 `nums`，返回数组中最大和的连续子数组的和。算法使用了动态规划的思想，通过维护当前和 `current_sum` 和最大和 `max_sum` 来逐步更新结果。遍历数组，对于每个元素，选择要么加入当前子数组，要么重新开始一个新的子数组，取两者中的较大值。最后，`max_sum` 就是所需的最大子数组和。
+
+==动态规划，注意题目要求解，有的递推到最后状态得到解，有的解在中间状态，比如dp的最大值不一定在结尾，可能在中间==
+
+#### 多维DP
+##### 三角形最小路径和问题
+遍历顺序，每行应该从右向左遍历，才能用一维数组优化空间，因为当前i是由i和i-1决定，i最右边有边界
+
+##### 障碍路径问题 
+每行遇到障碍需要置零并跳到下一行（break）

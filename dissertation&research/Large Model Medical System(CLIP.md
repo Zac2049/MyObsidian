@@ -3,7 +3,7 @@
 心脏子结构一般有：LV, RV, LA, RA, Myo, AO, PA
 - spatial_dim应该是固定的项，2d心脏
 	- 对于2d心脏数据集，有：
-	- ACDC, 100+50, cine-MRI 1:LV 2:Myo 3:RV![[Pasted image 20230411202233.png]]
+	- ACDC, 100+50, cine-MRI 3:LV 2:Myo 1:RV![[Pasted image 20230411202233.png]]
 	- test has not patient 109 117 134 146
 	- MM1[M&Ms challenge (ub.edu)](https://www.ub.edu/mnms/)
 		- "numTest": 200,    "numTraining": 175, MR
