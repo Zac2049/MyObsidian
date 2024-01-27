@@ -4,18 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a5de2c0dc5bd294b",
+        "id": "a905c229235ab033",
         "type": "tabs",
         "children": [
           {
-            "id": "e70494766531c826",
+            "id": "fe1aac680aad2492",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "interview/项目介绍&简历.md",
-                "mode": "source",
-                "source": false
+                "file": "pasted/Pasted image 20240103155635.png"
               }
             }
           }
@@ -93,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/项目介绍&简历.md",
+                "file": "pasted/Pasted image 20240103155635.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/项目介绍&简历.md",
+                "file": "pasted/Pasted image 20240103155635.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/项目介绍&简历.md"
+                "file": "pasted/Pasted image 20240103155635.png"
               }
             }
           },
@@ -143,7 +141,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -152,8 +152,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -167,44 +166,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e70494766531c826",
+  "active": "683c398829af9b34",
   "lastOpenFiles": [
-    "interview/面试标准问答.md",
-    "interview/面经.pdf",
-    "interview/计算机网络经典面试题.md",
+    "interview/LeetCode Notes.md",
     "interview/LeeCode Points.md",
     "interview/项目介绍&简历.md",
-    "Pasted image 20231204133221.png",
-    "Pasted image 20231204133212.png",
-    "pasted/Pasted image 20231204133149.png",
+    "interview/面试标准问答.md",
     "interview/C++ Points.md",
     "interview/CV&NLP.md",
+    "interview/ML&Math.md",
     "interview/数据库MySQL&Redis.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/面经.pdf",
+    "pasted/Pasted image 20240115000733.png",
+    "dissertation&research/Large Model Medical System(CLIP.md",
+    "dissertation&research/Research.md",
+    "dissertation&research/experiment.md",
+    "pasted/Pasted image 20240103185905.png",
+    "pasted/Pasted image 20240103172245.png",
+    "pasted/Pasted image 20240103172211.png",
+    "pasted/Pasted image 20240103155635.png",
+    "pasted/Pasted image 20231204133212.png",
+    "pasted/Pasted image 20240103153739.png",
+    "pasted/Pasted image 20231204133221.png",
+    "pasted/Pasted image 20231204133149.png",
     "pasted/Pasted image 20231106195542.png",
     "Obsidian Template.md",
-    "pasted/Pasted image 20231106195546.png",
-    "pasted/Pasted image 20231106195601.png",
     "README.md",
     "prompt template.md",
-    "dissertation&research/Large Model Medical System(CLIP.md",
     "Thorough.md",
-    "dissertation&research/experiment.md",
     "interview/Docker&Kubernetes&Linux.md",
     "interview/Golang Points.md",
-    "interview/LeetCode Notes.md",
     "other/李鹏辉.md",
     "dissertation&research/Preprocess Medical Image.md",
-    "dissertation&research/Research.md",
     "interview/Python Points.md",
-    "interview/ML&Math.md",
     "dissertation&research/GFUNet.md",
     "dissertation&research/lab server.md",
     "dissertation&research/reference.md",
     "dissertation&research/text.md",
-    "pasted/Pasted image 20230920213350.png",
-    "pasted/Pasted image 20231013224414.png",
-    "pasted/Pasted image 20230920213857.png",
-    "pasted/Pasted image 20230920213420.png",
     "projects/cuda-programming.pdf",
     "dissertation&research/Untitled.canvas",
     "projects/backend",

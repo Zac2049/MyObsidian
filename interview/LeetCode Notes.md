@@ -4,6 +4,110 @@
 
 ## 遍历
 
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def preorderTraversal(self,root):  
+	"""  
+	根->左->右  
+	:type root: TreeNode  
+	:rtype: List[int]  
+	"""  
+	stack = [root]  
+	res = []  
+	while stack:  
+		cur = stack.pop()  
+		res.append(cur.val)  
+		if cur.right:  
+			stack.append(cur.right)  
+		if cur.left:  
+			stack.append(cur.left)  
+	return res
+
+ 
+def inorderTraversal(self, root):  
+	"""  
+	左->根->右  
+	:type root: TreeNode  
+	:rtype: List[int]  
+	"""  
+	stack = []  
+	cur = root  
+	res = []  
+	while stack or cur:  
+		if cur:  
+			stack.append(cur)  
+			cur = cur.left  
+		else:  
+			node = stack.pop()  
+			res.append(node.val)  
+			cur = node.right  
+	return res
+
+def postorder_traversal(root):
+    if not root:
+        return []
+
+    result = []
+    stack = [root]
+
+    while stack:
+        cur = stack.pop()
+        result.insert(0, cur.value)  # 在结果列表的开头插入，实现逆序，实际模仿stack2输出
+
+        # 先压入左子树，再压入右子树，保证右子树先出栈
+        if node.left:
+            stack.append(cur.left)
+        if node.right:
+            stack.append(cur.right)
+
+    return result
+
+
+
+def layerTraverse(node):
+    
+    if not node:
+        return None
+ 
+    queue = []  
+    queue.append(node)
+    while len(queue) > 0:
+        tmp = queue.pop(0)
+        print(tmp.val)
+        if tmp.left:
+            queue.append(tmp.left)
+        if tmp.right:
+            queue.append(tmp.right)
+
+
+# 示例 - 构建二叉树
+#        1
+#       / \
+#      2   3
+#     / \
+#    4   5
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+# 先序遍历
+print("先序遍历:", preorder_traversal(root))
+# 中序遍历
+print("中序遍历:", inorder_traversal(root))
+# 后序遍历
+print("后序遍历:", postorder_traversal(root))
+
+```
+
+
+
 ```go
 func preOrder(root *treeNode) []int {
 	if root == nil {
