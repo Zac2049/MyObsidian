@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/项目介绍&简历.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/项目介绍&简历.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/项目介绍&简历.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md"
+                "file": "interview/项目介绍&简历.md"
               }
             }
           },
@@ -168,19 +168,16 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2e98ac774c00a3b9",
+  "active": "683c398829af9b34",
   "lastOpenFiles": [
-    "interview/项目介绍&简历.md",
-    "interview/面试会议后反思&科研反思.md",
-    "interview/LeeCode Points.md",
-    "interview/LeetCode Notes.md",
     "interview/面试标准问答.md",
-    "interview/Python Points.md",
-    "interview/ML&Math.md",
-    "interview/Golang Points.md",
+    "interview/LeetCode Notes.md",
+    "interview/LeeCode Points.md",
     "pasted/Pasted image 20240103155635.png",
+    "interview/项目介绍&简历.md",
     "interview/C++ Points.md",
     "interview/CV&NLP.md",
+    "interview/ML&Math.md",
     "interview/数据库MySQL&Redis.md",
     "interview/计算机网络经典面试题.md",
     "interview/面经.pdf",
@@ -201,8 +198,10 @@
     "prompt template.md",
     "Thorough.md",
     "interview/Docker&Kubernetes&Linux.md",
+    "interview/Golang Points.md",
     "other/李鹏辉.md",
     "dissertation&research/Preprocess Medical Image.md",
+    "interview/Python Points.md",
     "dissertation&research/GFUNet.md",
     "dissertation&research/lab server.md",
     "dissertation&research/reference.md",

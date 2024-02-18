@@ -197,6 +197,8 @@ def binary_search(arr, target):
 	- 找峰顶（0到n-2中二分，峰顶左侧涂红，峰顶本身和右侧涂蓝，m和m+1比较可知该怎么涂色）二分范围，染色规则
 	- 旋转数组的最小值，染色规则类似峰顶，mid和最后一个元素比较，mid < last，min in [0, mid]，else min in (mid, last]
 
+
+### 链表反转
 - 链表问题
 	- 反转，抛弃以前用的尾插吧
 ```go
@@ -580,3 +582,31 @@ print(result)
 
 ##### 障碍路径问题 
 每行遇到障碍需要置零并跳到下一行（break）
+
+
+### 单调栈
+
+#### 上一个（下一个）更大（小）元素
+给定一个整数数组 `temperatures` ，表示每天的温度，返回一个数组 `answer` ，其中 `answer[i]` 是指对于第 `i` 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 `0` 来代替。
+
+```python
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        n = len(temperatures)
+        ans = [0] * n
+        st = []
+        for i, t in enumerate(temperatures):
+            while st and t > temperatures[st[-1]]:
+                j = st.pop()
+                ans[j] = i - j
+            st.append(i)
+        return ans
+
+```
+
+这类题目都有类似在直方图上做一些规则计算。
+栈（队列deque）记录的是下标index，`temporatures[index]`是单调的值，外循环`stack.append`，内循环`stack.pop`维持栈的单调性，并更新答案。
+
+
+### 盛最多水的容器
+本质是双指针，实际是状态转移，可证明，这个状态转移能满足目标函数最大
