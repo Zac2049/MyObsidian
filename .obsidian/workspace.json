@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "c2da98085759b48e",
+    "type": "split",
+    "children": [
+      {
+        "id": "66a5a7e3c2b95959",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2e98ac774c00a3b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "interview/面试会议后反思&科研反思.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b9da709e6c2b9f55",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea8682032e5ccd16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "683c398829af9b34",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a9cc2dbe5bfa9f23",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "[\"excalidraw-plugin\"]",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "270155769c321f82",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "4295185db5de94f2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b12e61458f86aa38",
+    "type": "split",
+    "children": [
+      {
+        "id": "fcec5470d4e6a010",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b3514645bdb67968",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "interview/面试会议后反思&科研反思.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "ac0d4628179e4e91",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "interview/面试会议后反思&科研反思.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c395567b1cdf8057",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "687a4ea529847ec2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "interview/面试会议后反思&科研反思.md"
+              }
+            }
+          },
+          {
+            "id": "c58012ea73aa83e8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "2e98ac774c00a3b9",
+  "lastOpenFiles": [
+    "interview/项目介绍&简历.md",
+    "interview/面试会议后反思&科研反思.md",
+    "interview/LeeCode Points.md",
+    "interview/LeetCode Notes.md",
+    "interview/面试标准问答.md",
+    "interview/Python Points.md",
+    "interview/ML&Math.md",
+    "interview/Golang Points.md",
+    "pasted/Pasted image 20240103155635.png",
+    "interview/C++ Points.md",
+    "interview/CV&NLP.md",
+    "interview/数据库MySQL&Redis.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/面经.pdf",
+    "pasted/Pasted image 20240115000733.png",
+    "dissertation&research/Large Model Medical System(CLIP.md",
+    "dissertation&research/Research.md",
+    "dissertation&research/experiment.md",
+    "pasted/Pasted image 20240103185905.png",
+    "pasted/Pasted image 20240103172245.png",
+    "pasted/Pasted image 20240103172211.png",
+    "pasted/Pasted image 20231204133212.png",
+    "pasted/Pasted image 20240103153739.png",
+    "pasted/Pasted image 20231204133221.png",
+    "pasted/Pasted image 20231204133149.png",
+    "pasted/Pasted image 20231106195542.png",
+    "Obsidian Template.md",
+    "README.md",
+    "prompt template.md",
+    "Thorough.md",
+    "interview/Docker&Kubernetes&Linux.md",
+    "other/李鹏辉.md",
+    "dissertation&research/Preprocess Medical Image.md",
+    "dissertation&research/GFUNet.md",
+    "dissertation&research/lab server.md",
+    "dissertation&research/reference.md",
+    "dissertation&research/text.md",
+    "projects/cuda-programming.pdf",
+    "dissertation&research/Untitled.canvas",
+    "projects/backend",
+    "Untitled.canvas",
+    "projects/kaggle",
+    "projects/Android/211300774.pdf",
+    "projects/Android/211300774(1).pdf",
+    "projects/Android/2015-GayaUKM-BI-Final.pdf",
+    "pasted",
+    "projects/Android",
+    "projects/games"
+  ]
+}
