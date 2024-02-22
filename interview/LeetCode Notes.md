@@ -25,7 +25,8 @@ def preorderTraversal(self,root):
 		if cur.right:  
 			stack.append(cur.right)  
 		if cur.left:  
-			stack.append(cur.left)  
+			stack.append(cur.left)
+		# 用遍历模仿递归，先append right，再append left
 	return res
 
  

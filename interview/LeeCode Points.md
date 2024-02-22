@@ -198,6 +198,19 @@ def binary_search(arr, target):
 	- 旋转数组的最小值，染色规则类似峰顶，mid和最后一个元素比较，mid < last，min in [0, mid]，else min in (mid, last]
 
 
+### Python points
+
+#### 按元素排序
+```python
+intervals.sort(key=lambda x: x[0])
+intervals.sort(key=itemgetter(0))
+
+key=lambda student: student.age
+key=attrgetter('age')
+
+key=itemgetter(1,2)# 索引 属性
+key=attrgetter('grade', 'age')
+```
 ### 链表反转
 - 链表问题
 	- 反转，抛弃以前用的尾插吧
@@ -595,18 +608,235 @@ class Solution:
         n = len(temperatures)
         ans = [0] * n
         st = []
-        for i, t in enumerate(temperatures):
-            while st and t > temperatures[st[-1]]:
-                j = st.pop()
-                ans[j] = i - j
+        for i in range(n-1, -1, -1):
+	        t = temperatures[i]
+            while st and t >= temperatures[st[-1]]:
+                st.pop()
+            if st:# 栈顶就是下一个最大
+	            ans[i] = st[-1] - i
             st.append(i)
         return ans
-
+        # 从左到右
+        for i, t in temperatures:
+	        while st and t > temperatures[st[-1]] :# 因为外循环默认保证栈有上个迭代的元素，比较即可
+		        j = st.pop()# 栈顶，j是以前判断过的
+		        ans[j] = i-j# 当前（循环条件）大于栈顶 实时更新
+		    st.append(i)
+		# 单调栈的核心是栈顶代表下个更大或者下个更小的数
+		# 从右到左 把下一个更大的数存在栈 先pop掉，再更新ans
+		# 从左向右 把没有找到的那些数存入 ans更新同pop一起
+		# 这里的栈都是从大到小，因为求最大的元素
 ```
 
 这类题目都有类似在直方图上做一些规则计算。
 栈（队列deque）记录的是下标index，`temporatures[index]`是单调的值，外循环`stack.append`，内循环`stack.pop`维持栈的单调性，并更新答案。
 
+> 我建议用状态机画一下
+
+> 接雨水
+
+> 滑动窗口的最大值
+
+```python
+from typing import List
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        ans = []
+        st = []  # 用于存储当前窗口中元素的索引
+		# 也可以用deque pop popleft 
+        for i in range(n):
+            # 移除窗口外的元素
+            while st and st[0] < i - k + 1:
+                st.pop(0) # popleft
+
+            # 保持窗口单调递减
+            while st and nums[i] > nums[st[-1]]:
+                st.pop()
+
+            st.append(i)
+
+            # 记录窗口最大值
+            if i >= k - 1:
+                ans.append(nums[st[0]])
+
+        return ans
+```
+
 
 ### 盛最多水的容器
 本质是双指针，实际是状态转移，可证明，这个状态转移能满足目标函数最大
+
+### 滑动窗口
+无重复字符的最长子串
+map或者dict都行，set则用remove，add方法，in判断存在。==右指针right==是个==独立变量==
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        n = len(s)
+        left, right = 0, 0
+        map = DefaultDict(int)
+
+        if not s :
+            return 0
+        ans = 1
+
+        for left in range(n):
+            while right < n : # 并非初始化为left
+                if map[s[right]] > 0 :
+                    break
+                map[s[right]] += 1
+                ans = max(ans, right - left+1)
+                right += 1
+            map[s[left]] -= 1
+        return ans
+        # set
+        # 哈希集合，记录每个字符是否出现过
+        occ = set()
+        n = len(s)
+        # 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
+        rk, ans = -1, 0
+        for i in range(n):
+            if i != 0:
+                # 左指针向右移动一格，移除一个字符
+                occ.remove(s[i - 1])
+            while rk + 1 < n and s[rk + 1] not in occ:
+                # 不断地移动右指针
+                occ.add(s[rk + 1])
+                rk += 1
+            # 第 i 到 rk 个字符是一个极长的无重复字符子串
+            ans = max(ans, rk - i + 1)
+        return ans
+
+```
+
+### 和为K的子数组
+如何用前缀和加上哈希表，遍历一次数组，记录之前的信息，`pre_after - pre_before = sum of sub_array`
+
+```python
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        ans = 0
+        map = DefaultDict(int)
+        map[0] = 1 # 初始条件
+        pre_sum = 0
+        for num in nums :
+            pre_sum += num
+            if map[pre_sum - k] > 0 :
+                ans += map[pre_sum-k] 
+            map[pre_sum] += 1
+
+        return ans
+```
+
+
+### 图&回溯
+
+#### N皇后
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        solutions = []
+        board = [-1]*n # row to col
+        def trace(cur_r):
+            if cur_r == n:
+                solutions.append(['.'*i + 'Q' + '.'*(n-i-1) for i in board])
+            for col in range(n):
+                if is_safe(cur_r, col) :
+                    board[cur_r] = col
+                    trace(cur_r+1)
+        
+        def is_safe(cur_r, col):
+            for i in range(cur_r):
+                in_col = board[i]
+                if in_col == col or i+in_col == cur_r + col or i - in_col == cur_r - col:
+                    return False
+            return True
+        
+        trace(0)
+        return solutions
+```
+
+```scheme
+(define (queens board-size)
+  (define (queen-cols k)
+    (if (= k 0)
+        (list ())
+        (filter
+         (lambda (positions) 
+           (safe? k positions))
+         (flatmap
+          (lambda (rest-of-queens)
+            (map (lambda (new-row)
+                   (adjoin-position new-row k rest-of-queens))
+                 (enumerate-interval 1 board-size)))
+          (queen-cols (- k 1))))))
+```
+
+#### 3维地牢路径长问题poj 2251
+求最短路问题，直接**BFS**
+
+```python
+from collections import deque
+
+class SE:
+    def __init__(self, l, r, c, depth):
+        self.l = l
+        self.r = r
+        self.c = c
+        self.depth = depth
+
+def BFS(k, i, j):
+    global shortminute
+    visited = [[[False for _ in range(40)] for _ in range(40)] for _ in range(40)]
+    queue = deque([SE(k, i, j, 1)])
+    
+    while queue:
+        x = queue.popleft()
+        if x.l == e.l and x.r == e.r and x.c == e.c:
+            shortminute = x.depth
+            return True
+        
+        directions = [(0, 0, -1), (0, -1, 0), (0, 0, 1), (0, 1, 0), (-1, 0, 0), (1, 0, 0)]
+        for dx, dy, dz in directions:
+            to_l, to_r, to_c = x.l + dx, x.r + dy, x.c + dz
+            if 0 <= to_l < L and 0 <= to_r < R and 0 <= to_c < C and maze[to_l][to_r][to_c] and not visited[to_l][to_r][to_c]:
+                visited[to_l][to_r][to_c] = True
+                queue.append(SE(to_l, to_r, to_c, x.depth + 1))
+    
+    return False
+
+if __name__ == "__main__":
+    shortminute = 0
+    while True:
+        L, R, C = map(int, input().split())
+        if L == 0 and R == 0 and C == 0:
+            break
+        
+        # Initial
+        maze = [[[False for _ in range(40)] for _ in range(40)] for _ in range(40)]
+        
+        # Structure the Maze
+        for k in range(1, L + 1):
+            for i in range(1, R + 1):
+                row = input()
+                for j, temp in enumerate(row, start=1):
+                    if temp == '.':
+                        maze[k][i][j] = True
+                    if temp == 'S':
+                        maze[k][i][j] = True
+                        s = SE(k, i, j, 0)
+                    if temp == 'E':
+                        maze[k][i][j] = True
+                        e = SE(k, i, j, 0)
+        
+        # Search the min Minute
+        if BFS(s.l, s.r, s.c):
+            print(f"Escaped in {shortminute-1} minute(s).")
+        else:
+            print("Trapped!")
+
+```
