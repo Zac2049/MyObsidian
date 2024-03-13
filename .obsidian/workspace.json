@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a905c229235ab033",
+        "id": "7bd26177fc6c376a",
         "type": "tabs",
         "children": [
           {
-            "id": "fe1aac680aad2492",
+            "id": "33b11fed3fd25244",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/面试标准问答.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"excalidraw-plugin\"]",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/面试标准问答.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md",
+                "file": "interview/面试标准问答.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/面试会议后反思&科研反思.md"
+                "file": "interview/面试标准问答.md"
               }
             }
           },
@@ -168,29 +168,36 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "fe1aac680aad2492",
+  "active": "33b11fed3fd25244",
   "lastOpenFiles": [
-    "interview/CV&NLP.md",
-    "interview/LeeCode Points.md",
-    "interview/LeetCode Notes.md",
-    "interview/面试标准问答.md",
     "interview/面试会议后反思&科研反思.md",
-    "interview/计算机网络经典面试题.md",
-    "interview/面经.pdf",
-    "interview/项目介绍&简历.md",
-    "interview/ML&Math.md",
-    "interview/Test question.md",
-    "interview/Python Points.md",
-    "interview/Golang Points.md",
+    "interview/面试标准问答.md",
     "interview/数据库MySQL&Redis.md",
+    "interview/ML&Math.md",
+    "interview/Python Points.md",
+    "interview/README.md",
+    "README.md",
+    "interview/测试开发.md",
+    "interview/项目介绍&简历.md",
+    "interview/LeeCode Points.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/LeetCode Notes.md",
+    "Pasted image 20240301163713.png",
+    "interview/CV&NLP.md",
+    "interview/Test question.md",
+    "dissertation&research/Large Model Medical System(CLIP.md",
+    "dissertation&research/Preprocess Medical Image.md",
+    "dissertation&research/reference.md",
+    "dissertation&research/Research.md",
+    "公式.md",
+    "interview/面经.pdf",
+    "interview/Golang Points.md",
     "other/李鹏辉.md",
     "interview/C++ Points.md",
     "interview/Docker&Kubernetes&Linux.md",
     "interview/Self-Introduction.md",
     "pasted/Pasted image 20240103155635.png",
     "pasted/Pasted image 20240115000733.png",
-    "dissertation&research/Large Model Medical System(CLIP.md",
-    "dissertation&research/Research.md",
     "dissertation&research/experiment.md",
     "pasted/Pasted image 20240103185905.png",
     "pasted/Pasted image 20240103172245.png",
@@ -199,13 +206,7 @@
     "pasted/Pasted image 20240103153739.png",
     "pasted/Pasted image 20231204133221.png",
     "pasted/Pasted image 20231204133149.png",
-    "pasted/Pasted image 20231106195542.png",
     "Obsidian Template.md",
-    "README.md",
-    "prompt template.md",
-    "Thorough.md",
-    "dissertation&research/Preprocess Medical Image.md",
-    "dissertation&research/GFUNet.md",
     "projects/cuda-programming.pdf",
     "dissertation&research/Untitled.canvas",
     "projects/backend",

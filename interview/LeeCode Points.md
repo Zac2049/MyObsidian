@@ -734,6 +734,26 @@ class Solution:
 
 ### 图&回溯
 
+#### 全排列
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def backtrack(idx):
+            if idx == n:
+                ans.append(nums[:])# append 副本
+            for i in range(idx, n):
+                nums[idx], nums[i] = nums[i], nums[idx]
+                backtrack(idx+1)
+                nums[idx], nums[i] = nums[i], nums[idx]
+        
+        n = len(nums)
+        ans = []
+        backtrack(0)
+        return ans
+    # 非字典序
+```
+
+
 #### N皇后
 
 ```python
@@ -741,14 +761,16 @@ class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         solutions = []
         board = [-1]*n # row to col
-        def trace(cur_r):
+        def track(cur_r):
             if cur_r == n:
                 solutions.append(['.'*i + 'Q' + '.'*(n-i-1) for i in board])
             for col in range(n):
                 if is_safe(cur_r, col) :
                     board[cur_r] = col
-                    trace(cur_r+1)
-        
+                    track(cur_r+1)
+			        # 为什么board没有pop的操作？
+			        # 还是需要的
+			        board[cur_r] = -1
         def is_safe(cur_r, col):
             for i in range(cur_r):
                 in_col = board[i]
@@ -756,7 +778,7 @@ class Solution:
                     return False
             return True
         
-        trace(0)
+	    track(0)
         return solutions
 ```
 
@@ -840,3 +862,266 @@ if __name__ == "__main__":
             print("Trapped!")
 
 ```
+
+#### 烂橘子问题
+多源BFS，DFS会涉及并行的问题
+
+#### 课程的问题，拓扑排序
+1. 图的结构，用字典树，python中`defaultdict(list)`
+2. 三个状态的dfs，未访问，已访问，回溯
+```python
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        edges = collections.defaultdict(list)
+        visited = [0]*numCourses
+        for info in prerequisites:
+            edges[info[1]].append(info[0])
+        valid = True
+        result = []
+
+        def dfs(u: int):
+            nonlocal valid
+            visited[u] = 1
+
+            for v in edges[u]:
+                if visited[v] == 0 :
+                    dfs(v)
+                    if not valid:
+                        return
+                elif visited[v] == 1:
+                    valid = False
+                    return
+            visited[u] = 2 # 已完成，回溯，相当于回收
+            result.append(u)
+        
+        for i in range(numCourses):
+            if valid and not visited[i]:
+                dfs(i)
+
+        return valid
+```
+
+#### 组合总和（用栈的append和pop模仿参数传递）
+有些candidates的数字，有放回的组合成target
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        def traceback(idx, target):
+            if not target:
+                ans.append(cand[:])
+                return
+            if idx == n:
+                return
+            traceback(idx+1, target)
+            if target - candidates[idx] >= 0:
+                cand.append(candidates[idx])
+                traceback(idx, target - candidates[idx])  
+                cand.pop()# 实际上cand的append和pop是一种对函数参数的模仿
+                # 这也就是回溯实际的意义
+        ans = list()
+        cand = list()
+        n = len(candidates)
+        traceback(0, target)
+        return ans
+```
+
+
+#### 括号生成
+递归函数左右括号数**两**个参数，这样才能判断能不能进行右括号的递归操作
+
+#### 分割回文串
+```python
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        
+        n = len(s)
+        f = [[True]*n for _ in range(n)]
+		# 预处理得到每个s[i:j]是否回文，为什么按照这个遍历是对的？
+		# 因为f[i][j]由f[i+1][j-1]转移，即按照这个顺序
+        for i in range(n-1, -1, -1):
+            for j in range(i+1, n):
+                f[i][j] = (s[i] == s[j]) and f[i+1][j-1]
+
+        ans = []
+        cur = []
+        # 回溯分割，idx, i 
+        def track(idx):
+            if idx == n:
+                ans.append(cur[:])
+                return
+            for i in range(idx, n):
+                if f[idx][i]:
+                    cur.append(s[idx:i+1])
+                    track(i+1)
+                    cur.pop()
+        track(0)
+        return ans
+
+```
+
+## 字典问题
+`map = defaultdict(Node)`
+`if head not in map:` 而不是 `if not map[head]`，后者会报错
+
+### Trie树
+```python
+class TrieNode:
+    def __init__(self):
+        self.children = {}  # 用于存储子节点
+        self.is_end_of_word = False  # 表示是否为单词的结尾
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()  # 根节点
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()# char--node(char, node)
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, word):
+        node = self._get_last_node(word)
+        return node is not None and node.is_end_of_word
+
+    def startsWith(self, prefix):
+        return self._get_last_node(prefix) is not None
+
+    def _get_last_node(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return None
+            node = node.children[char]
+        return node
+
+# 示例用法：
+trie = Trie()
+trie.insert("apple")
+print(trie.search("apple"))  # 输出 True
+print(trie.search("app"))    # 输出 False
+print(trie.startsWith("app"))  # 输出 True
+trie.insert("app")
+print(trie.search("app"))    # 输出 True
+
+```
+## 合并K个有序链表
+如何按照attr进行堆的维护
+
+```python
+ListNode.__lt__ = lambda a, b: a.val < b.val  # 让堆可以比较节点大小
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        cur = dummy = ListNode()  # 哨兵节点，作为合并后链表头节点的前一个节点
+        h = [head for head in lists if head]  # 初始把所有链表的头节点入堆
+        heapify(h)  # 堆化
+        while h:  # 循环直到堆为空
+            node = heappop(h)  # 剩余节点中的最小节点
+            if node.next:  # 下一个节点不为空
+                heappush(h, node.next)  # 下一个节点有可能是最小节点，入堆
+            cur.next = node  # 合并到新链表中
+            cur = cur.next  # 准备合并下一个节点
+        return dummy.next  # 哨兵节点的下一个节点就是新链表的头节点
+
+```
+
+
+
+
+## 二叉树问题
+### 二叉树对称问题
+并非单参数的函数递归，而是双参数（左右分别游走）的函数递归
+
+### 判断二叉树是否BST
+三参数递归，root，lower val(init as -inf)，upper val(init ans inf)
+
+- 思考这么一个问题，到底如何确定要递归函数的==各个参数==，是否像SICP中说的不动点问题
+
+### 路径总和三
+类似于归并或者快速的二重递归，第一层按原target，第二层两参数的递归下降
+```python
+class Solution:
+    def pathSum(self, root: TreeNode, targetSum: int) -> int:
+        def rootSum(root, targetSum):
+            if root is None:
+                return 0
+
+            ret = 0
+            if root.val == targetSum:
+                ret += 1
+
+            ret += rootSum(root.left, targetSum - root.val)
+            ret += rootSum(root.right, targetSum - root.val)
+            return ret
+        
+        if root is None:
+            return 0
+            
+        ret = rootSum(root, targetSum)
+        ret += self.pathSum(root.left, targetSum)
+        ret += self.pathSum(root.right, targetSum)
+        return ret
+```
+
+### lowest Common Ancestor问题
+状态函数怎么定义
+```python
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        ans = None
+        def find(root):
+            nonlocal ans
+            if not root:
+                return None
+            cur = False
+            if root == p or root == q:
+                cur = True
+            l = find(root.left)
+            r = find(root.right)
+            if not l and not r:
+                return cur
+            if l and r or ( cur and l ) or (cur and r) :
+                ans = root
+                return False
+            if l or r :
+                return True
+            return False
+        find(root)
+        return ans
+```
+
+### 最大路径和问题
+cur 是当前节点的路径和，是内部状态，和贡献值（返回）要分离
+
+```python
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        # 初始化 ans 为负无穷，确保能够正确比较路径和
+        ans = float('-inf') 
+
+        def recur(root):
+            nonlocal ans
+            if not root:
+                return 0
+
+            # 递归计算左右子树的贡献值
+            left_contri = max(0, recur(root.left))
+            right_contri = max(0, recur(root.right))
+
+            # 更新当前节点的路径和
+            cur = left_contri + right_contri + root.val
+
+            # 更新全局最大路径和
+            ans = max(ans, cur)
+
+            # 返回当前节点的贡献值（用于上层节点的计算）
+            return max(left_contri, right_contri) + root.val
+
+        recur(root)
+        return ans
+
+```
+

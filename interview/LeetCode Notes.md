@@ -55,7 +55,6 @@ def postorder_traversal(root):
 
     result = []
     stack = [root]
-
     while stack:
         cur = stack.pop()
         result.insert(0, cur.value)  # 在结果列表的开头插入，实现逆序，实际模仿stack2输出
