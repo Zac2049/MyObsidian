@@ -383,6 +383,8 @@ def levelOrder(self, root: TreeNode) -> List[int]:
 ==注意`sys.stdin.readline().split()`返回的是list
 `sys.stdin.readline()`返回的是str，一般会多一个回车符==
 ```python
+items = map(int, input().split())
+
 n,k = sys.stdin.readline().split()
 nums = []
 for _ in range(n):
@@ -1124,4 +1126,55 @@ class Solution:
         return ans
 
 ```
+
+
+
+# 背包问题
+
+1. **0/1背包问题**：
+   - 每个物品只能选一次。
+   - 问题描述：给定物品的重量和价值，目标是最大化背包的价值，且总重量不超过背包的容量。
+   - 动态规划解法：
+     ```python
+     def knapsack(weights, values, capacity):
+         n = len(weights)
+         dp = [0] * (capacity + 1)
+         for i in range(n):
+             for w in range(capacity, weights[i] - 1, -1):
+                 dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+         return dp[capacity]
+     ```
+
+2. **完全背包问题**：
+   - 每个物品可以选多次。
+   - 动态规划解法：
+     ```python
+     def complete_knapsack(weights, values, capacity):
+         n = len(weights)
+         dp = [0] * (capacity + 1)
+         for i in range(n):
+             for w in range(weights[i], capacity + 1):
+                 dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+         return dp[capacity]
+     ```
+
+3. **分数背包问题**：
+   - 可以将物品分割。
+   - 使用贪心算法：
+     ```python
+     def fractional_knapsack(weights, values, capacity):
+         index = list(range(len(values)))
+         ratio = [v / w for v, w in zip(values, weights)]
+         index.sort(key=lambda i: ratio[i], reverse=True)
+
+         max_value = 0
+         for i in index:
+             if weights[i] <= capacity:
+                 max_value += values[i]
+                 capacity -= weights[i]
+             else:
+                 max_value += values[i] * (capacity / weights[i])
+                 break
+         return max_value
+     ```
 

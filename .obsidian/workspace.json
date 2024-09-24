@@ -13,13 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "interview/LeetCode Notes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bbb2f0056e621dbd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "interview/LeeCode Points.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9618a08eaa18cbf8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "interview/面试标准问答.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "35f39f5e92e30d89",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dissertation&research/Preprocess Medical Image.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +114,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "b12e61458f86aa38",
@@ -93,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/面试标准问答.md",
+                "file": "interview/LeeCode Points.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/面试标准问答.md",
+                "file": "interview/LeeCode Points.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/面试标准问答.md"
+                "file": "interview/LeeCode Points.md"
               }
             }
           },
@@ -168,37 +205,38 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "33b11fed3fd25244",
+  "active": "bbb2f0056e621dbd",
   "lastOpenFiles": [
+    "interview/LeetCode Notes.md",
+    "interview/LeeCode Points.md",
+    "README.md",
+    "公式.md",
     "interview/面试会议后反思&科研反思.md",
     "interview/面试标准问答.md",
-    "interview/数据库MySQL&Redis.md",
-    "interview/ML&Math.md",
-    "interview/Python Points.md",
-    "interview/README.md",
-    "README.md",
-    "interview/测试开发.md",
-    "interview/项目介绍&简历.md",
-    "interview/LeeCode Points.md",
-    "interview/计算机网络经典面试题.md",
-    "interview/LeetCode Notes.md",
-    "Pasted image 20240301163713.png",
-    "interview/CV&NLP.md",
-    "interview/Test question.md",
-    "dissertation&research/Large Model Medical System(CLIP.md",
-    "dissertation&research/Preprocess Medical Image.md",
-    "dissertation&research/reference.md",
-    "dissertation&research/Research.md",
-    "公式.md",
-    "interview/面经.pdf",
+    "工作交接情况.md",
     "interview/Golang Points.md",
-    "other/李鹏辉.md",
+    "interview/项目介绍&简历.md",
+    "dissertation&research/Preprocess Medical Image.md",
     "interview/C++ Points.md",
+    "dissertation&research/答辩稿.md",
+    "dissertation&research/Large Model Medical System(CLIP.md",
     "interview/Docker&Kubernetes&Linux.md",
-    "interview/Self-Introduction.md",
+    "interview/Python Points.md",
+    "interview/ML&Math.md",
+    "interview/测试开发.md",
+    "interview/数据库MySQL&Redis.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/README.md",
+    "interview/面经.pdf",
+    "dissertation&research/Research.md",
+    "dissertation&research/text.md",
+    "dissertation&research/reference.md",
+    "dissertation&research/lab server.md",
+    "dissertation&research/GFUNet.md",
+    "dissertation&research/experiment.md",
+    "Pasted image 20240301163713.png",
     "pasted/Pasted image 20240103155635.png",
     "pasted/Pasted image 20240115000733.png",
-    "dissertation&research/experiment.md",
     "pasted/Pasted image 20240103185905.png",
     "pasted/Pasted image 20240103172245.png",
     "pasted/Pasted image 20240103172211.png",
@@ -206,7 +244,6 @@
     "pasted/Pasted image 20240103153739.png",
     "pasted/Pasted image 20231204133221.png",
     "pasted/Pasted image 20231204133149.png",
-    "Obsidian Template.md",
     "projects/cuda-programming.pdf",
     "dissertation&research/Untitled.canvas",
     "projects/backend",
