@@ -4,40 +4,40 @@
     "type": "split",
     "children": [
       {
-        "id": "7bd26177fc6c376a",
+        "id": "66a5a7e3c2b95959",
         "type": "tabs",
         "children": [
           {
-            "id": "33b11fed3fd25244",
+            "id": "2e98ac774c00a3b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/LeetCode Notes.md",
+                "file": "interview/面试会议后反思&科研反思.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "bbb2f0056e621dbd",
+            "id": "042b1cfe9ccf92a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "turingq/reID & Gesture Recognition调研.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "9618a08eaa18cbf8",
+            "id": "b1646918e297a20e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/面试标准问答.md",
+                "file": "turingq/机器人语音文本项目：调研.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +85,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"excalidraw-plugin\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "turingq/机器人语音文本项目：调研.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "interview/LeeCode Points.md",
+                "file": "turingq/机器人语音文本项目：调研.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/LeeCode Points.md"
+                "file": "turingq/机器人语音文本项目：调研.md"
               }
             }
           },
@@ -205,45 +205,47 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "bbb2f0056e621dbd",
+  "active": "b1646918e297a20e",
   "lastOpenFiles": [
-    "interview/LeetCode Notes.md",
-    "interview/LeeCode Points.md",
-    "README.md",
+    "turingq/机器人语音文本项目：实践.md",
+    "turingq/机器人语音文本项目：调研.md",
+    "turingq/设计.md",
+    "turingq/reID & Gesture Recognition调研.md",
+    "Pasted image 20240618140825.png",
+    "Pasted image 20240618140742.png",
+    "Excalidraw/reID.md",
+    "turingq/公式.md",
     "公式.md",
+    "Excalidraw/Drawing 2023-09-09 18.33.30.excalidraw.md",
+    "Excalidraw/Drawing 2023-01-02 21.01.22.excalidraw.md",
+    "Excalidraw/Drawing 2024-03-26 09.26.42.excalidraw.md",
+    "turingq/Untitled.canvas",
+    "pasted/Pasted image 20240301163713.png",
     "interview/面试会议后反思&科研反思.md",
-    "interview/面试标准问答.md",
-    "工作交接情况.md",
-    "interview/Golang Points.md",
+    "turingq/手势识别.md",
+    "turingq",
     "interview/项目介绍&简历.md",
-    "dissertation&research/Preprocess Medical Image.md",
-    "interview/C++ Points.md",
-    "dissertation&research/答辩稿.md",
-    "dissertation&research/Large Model Medical System(CLIP.md",
-    "interview/Docker&Kubernetes&Linux.md",
-    "interview/Python Points.md",
-    "interview/ML&Math.md",
-    "interview/测试开发.md",
     "interview/数据库MySQL&Redis.md",
-    "interview/计算机网络经典面试题.md",
+    "interview/测试开发.md",
     "interview/README.md",
-    "interview/面经.pdf",
-    "dissertation&research/Research.md",
-    "dissertation&research/text.md",
-    "dissertation&research/reference.md",
-    "dissertation&research/lab server.md",
-    "dissertation&research/GFUNet.md",
-    "dissertation&research/experiment.md",
-    "Pasted image 20240301163713.png",
+    "interview/面试标准问答.md",
+    "interview/Test question.md",
+    "interview/Self-Introduction.md",
+    "interview/Python Points.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/LeeCode Points.md",
+    "interview/LeetCode Notes.md",
+    "interview/ML&Math.md",
+    "interview/Golang Points.md",
     "pasted/Pasted image 20240103155635.png",
+    "interview/C++ Points.md",
+    "interview/面经.pdf",
     "pasted/Pasted image 20240115000733.png",
     "pasted/Pasted image 20240103185905.png",
     "pasted/Pasted image 20240103172245.png",
     "pasted/Pasted image 20240103172211.png",
     "pasted/Pasted image 20231204133212.png",
     "pasted/Pasted image 20240103153739.png",
-    "pasted/Pasted image 20231204133221.png",
-    "pasted/Pasted image 20231204133149.png",
     "projects/cuda-programming.pdf",
     "dissertation&research/Untitled.canvas",
     "projects/backend",
@@ -253,7 +255,6 @@
     "projects/Android/211300774(1).pdf",
     "projects/Android/2015-GayaUKM-BI-Final.pdf",
     "pasted",
-    "projects/Android",
-    "projects/games"
+    "projects/Android"
   ]
 }
