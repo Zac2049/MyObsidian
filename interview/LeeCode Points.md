@@ -200,6 +200,94 @@ def binary_search(arr, target):
 
 ### Python points
 
+#### python排序问题
+
+HJ26 字符串排序 为例
+
+描述
+编写一个程序，将输入字符串中的字符按如下规则排序。  
+规则 1 ：英文字母从 A 到 Z 排列，不区分大小写。 
+如，输入： Type 输出： epTy  
+  
+规则 2 ：同一个英文字母的大小写同时存在时，按照输入顺序排列。  
+如，输入： BabA 输出： aABb  
+
+规则 3 ：非英文字母的其它字符保持原来的位置。  
+如，输入： By?e 输出： Be?y
+```python
+def custom_sort(line):
+    # 提取所有字母，保留其原始索引和大小写信息
+    letters = [(c, i) for i, c in enumerate(line) if c.isalpha()]
+    
+    # 按字母的大小写（不区分）排序，同时保持原始顺序
+    letters.sort(key=lambda x: (x[0].lower(), x[1]))
+    
+    # 结果列表
+    result = list(line)  # 将原始字符串转换为列表以便修改
+    
+    # 填充排序后的字母
+    cnt = 0
+    for i in range(len(result)) :
+        if result[i].isalpha():
+            result[i] = letters[cnt][0]
+            cnt+=1
+
+    return ''.join(result)
+
+# 测试输入
+line = input().strip()
+sorted_line = custom_sort(line)
+print(sorted_line)
+
+```
+
+==注意点==
+- `some_list.sort(key=lambda x:(x[0].lower(), x[1]))`，返回元组允许你在一个排序操作中指定多个比较标准。元组中的元素会按顺序进行比较。
+- 将`result = list(line)`，字符串转为list，再用`''.join(result)` 拼接字符串。因为字符串是不可变类型，索引是无法改变原字符串
+
+#### python二分
+
+使用自定义的二分搜索：
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = left + (right - left) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+```
+
+使用 `bisect` 模块：
+```python
+import bisect
+
+arr = [1, 2, 4, 5, 6]
+target = 3
+index = bisect.bisect_left(arr, target)  # 返回第一个大于等于target的索引
+```
+
+ 在 LeetCode 中的常见用法
+1. **查找特定值**：
+   - 问题示例：`Search in Rotated Sorted Array`，可以使用二分搜索快速定位目标值。
+
+2. **查找插入位置**：
+   - 问题示例：`Search Insert Position`，可以用 `bisect.bisect_left` 找到合适的插入位置。
+
+3. **最小值/最大值的查找**：
+   - 问题示例：`Find Minimum in Rotated Sorted Array`，可以通过二分搜索确定最小值的位置。
+
+4. **满足条件的值**：
+   - 问题示例：`Find K-th Largest Element in an Array`，可以使用二分搜索结合计数法，确定第K大元素的值。
+
+5. **区间和范围查找**：
+   - 问题示例：`Count of Smaller Numbers After Self`，可以利用二分搜索记录小于当前值的数量。
+
+
 #### 按元素排序
 ```python
 intervals.sort(key=lambda x: x[0])
@@ -211,6 +299,36 @@ key=attrgetter('age')
 key=itemgetter(1,2)# 索引 属性
 key=attrgetter('grade', 'age')
 ```
+
+- 同频词比较
+```python
+sorted(w) == sorted(x)
+# or
+Counter(s1) == Counter(s2)
+```
+#### ACM关于python的输入
+==注意`sys.stdin.readline().split()`返回的是list
+`sys.stdin.readline()`返回的是str，一般会多一个回车符==
+```python
+
+
+
+items = map(int, input().split()) # 默认得到可遍历可unpack的字符串，必要时用list()
+a = input().strip() # 除掉空格
+n,k = sys.stdin.readline().split() # n, k = map(int, input().split()) 更好
+
+nums = []
+for _ in range(n):
+    num = map(int, sys.stdin.readline().split())
+    nums.append(num)
+
+# or
+# for line in sys.stdin.readlines(): 看情况
+for line in sys.stdin:
+    a =line.split() # a 默认是一个字符串列表，可以滤除空格
+    temp=list(map(int,line))
+```
+
 ### 链表反转
 - 链表问题
 	- 反转，抛弃以前用的尾插吧
@@ -378,24 +496,6 @@ def levelOrder(self, root: TreeNode) -> List[int]:
                 if curr.right:
                     queue.append(curr.right)
         return order
-```
-### ACM关于python的输入
-==注意`sys.stdin.readline().split()`返回的是list
-`sys.stdin.readline()`返回的是str，一般会多一个回车符==
-```python
-items = map(int, input().split()) # 默认得到可遍历可unpack的字符串，必要时用list()
-
-n,k = sys.stdin.readline().split() # n, k = map(int, input().split()) 更好
-nums = []
-for _ in range(n):
-    num = map(int, sys.stdin.readline().split())
-    nums.append(num)
-
-# or
-# for line in sys.stdin.readlines(): 看情况
-for line in sys.stdin:
-    a =line.split() # a 默认是一个字符串列表，可以滤除空格
-    temp=list(map(int,line))
 ```
 
 - 克隆图的核心，哈希和dfs
@@ -565,6 +665,53 @@ class Solution:
 ```
 
 ### DP相关
+##### 合唱队
+N位同学站成一排，音乐老师要请其中的(N-K)位同学出列，使得剩下的K位同学排成合唱队形(递增再递减，严格)。
+```python
+def min_students_to_leave(N, heights):
+    if N == 0:
+        return 0
+    
+    LIS = [1] * N
+    LDS = [1] * N
+
+    # 计算LIS
+    for i in range(N):
+        for j in range(i):
+            if heights[j] < heights[i]:
+                LIS[i] = max(LIS[i], LIS[j] + 1)
+
+    # 计算LDS
+    for i in range(N - 1, -1, -1):
+        for j in range(N - 1, i, -1):
+            if heights[j] < heights[i]:
+                LDS[i] = max(LDS[i], LDS[j] + 1)
+
+    # 找到合唱队形的最大长度
+    max_length = 0
+    for i in range(N):
+        max_length = max(max_length, LIS[i] + LDS[i] - 1)
+
+    # 所需出列人数
+    return N - max_length
+
+# 示例
+N = 7
+heights = [186, 186, 150, 200, 160, 130, 180]
+print(min_students_to_leave(N, heights))  # 输出所需出列的最少人数
+
+# 计算LIS时，我们可以利用一个辅助数组来实现。
+def calculate_LIS(heights):
+    dp = []
+    for height in heights:
+        pos = bisect_left(dp, height)
+        if pos == len(dp):
+            dp.append(height)
+        else:
+            dp[pos] = height
+    return len(dp)
+
+```
 ##### 最大和的连续子数组
 以下是一个Python实现：
 
