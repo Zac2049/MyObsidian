@@ -286,7 +286,47 @@ index = bisect.bisect_left(arr, target)  # 返回第一个大于等于target的�
 
 5. **区间和范围查找**：
    - 问题示例：`Count of Smaller Numbers After Self`，可以利用二分搜索记录小于当前值的数量。
+#### 搜索旋转数组最小值：
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        n = len(nums)
+        left, right = 0, n-1
 
+        while left < right :
+            mid = (left + right)//2
+            if nums[mid] < nums[right] :
+                right = mid
+            else:
+                left = mid + 1    
+# 最后输出已经暗示left为目标指针，right为开区间
+
+        return nums[left]
+```
+
+类似：
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if not nums:
+            return -1
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[0] <= nums[mid]:
+                if nums[0] <= target < nums[mid]:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            else:
+                if nums[mid] < target <= nums[len(nums) - 1]:
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return -1
+```
 
 #### 按元素排序
 ```python
@@ -309,12 +349,17 @@ Counter(s1) == Counter(s2)
 #### ACM关于python的输入
 ==注意`sys.stdin.readline().split()`返回的是list
 `sys.stdin.readline()`返回的是str，一般会多一个回车符==
+
+理论上只需要`input()`和`input().split()`，以及map函数
+
 ```python
 
 
+# 得到每行数字数组
+nums = map(int, input().split()) # 默认得到可遍历可unpack的字符串，必要时用list()
+# 得到每行单个字符串
+s = input().strip() # 除掉空格
 
-items = map(int, input().split()) # 默认得到可遍历可unpack的字符串，必要时用list()
-a = input().strip() # 除掉空格
 n,k = sys.stdin.readline().split() # n, k = map(int, input().split()) 更好
 
 nums = []
@@ -322,11 +367,15 @@ for _ in range(n):
     num = map(int, sys.stdin.readline().split())
     nums.append(num)
 
+for line in input.strip():
+for i in range(n):
+	nums = map(int, input().split())
 # or
 # for line in sys.stdin.readlines(): 看情况
 for line in sys.stdin:
     a =line.split() # a 默认是一个字符串列表，可以滤除空格
     temp=list(map(int,line))
+
 ```
 
 ### 链表反转
@@ -538,7 +587,7 @@ integer_value = ord(char)
 
 ### 位运算
 
-1. **按位与（&）**：将两个二进制数的对应位进行与操作，只有在两个操作数的对应位都是 1 的时候，结果位才是 1。例如，`1010 & 1100` 将得到 `1000`。
+1. **按位与（&）**：将两个二进制数的对应位进行与操作，只有在两个操作数的对应位都是 1 的时候，结果位才是 1。例如，`1010 & 1100` 将得到 `1000`。全为1到串可以充当==MASK==
 
 2. **按位或（|）**：将两个二进制数的对应位进行或操作，只要两个操作数的对应位中至少有一个是 1，结果位就是 1。例如，`1010 | 1100` 将得到 `1110`。
 
@@ -592,50 +641,28 @@ class Solution:
 10. **更新位**：`(n & ~(1 << i)) | (bit << i)` 可以更新第i位的值为bit。
 
 11. **交换两个数的特定位**：可以使用按位操作和位掩码来交换两个数的特定位。
+#### ip同long的转换
 
-#### 搜索旋转数组最小值：
 ```python
-class Solution:
-    def findMin(self, nums: List[int]) -> int:
-        n = len(nums)
-        left, right = 0, n-1
+def ip_to_long(ip):
+    # 将IP地址分割成四部分
+    parts = ip.split('.')
+    # 每个部分转换为8位的二进制形式，然后组合起来
+    # 使用 int 将二进制字符串转为十进制数
+    long_ip = (int(parts[0]) << 24) + (int(parts[1]) << 16) + (int(parts[2]) << 8) + int(parts[3])
+    return long_ip
+    
+def long_to_ip(num):
+    # 通过移位和按位与操作提取IP地址的每一段
+    part1 = (num >> 24) & 255
+    part2 = (num >> 16) & 255
+    part3 = (num >> 8) & 255
+    part4 = num & 255
+    # 将提取出来的每一段转换为字符串，用 '.' 拼接
+    return f"{part1}.{part2}.{part3}.{part4
 
-        while left < right :
-            mid = (left + right)//2
-            if nums[mid] < nums[right] :
-                right = mid
-            else:
-                left = mid + 1    
-# 最后输出已经暗示left为目标指针，right为开区间
-
-        return nums[left]
 ```
-
-类似：
-```python
-class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        if not nums:
-            return -1
-        l, r = 0, len(nums) - 1
-        while l <= r:
-            mid = (l + r) // 2
-            if nums[mid] == target:
-                return mid
-            if nums[0] <= nums[mid]:
-                if nums[0] <= target < nums[mid]:
-                    r = mid - 1
-                else:
-                    l = mid + 1
-            else:
-                if nums[mid] < target <= nums[len(nums) - 1]:
-                    l = mid + 1
-                else:
-                    r = mid - 1
-        return -1
-```
-
-#### 银行家算法 贪心+堆排序
+### 银行家算法 贪心+堆排序
 ```python
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
@@ -738,6 +765,50 @@ print(result)
 
 ==动态规划，注意题目要求解，有的递推到最后状态得到解，有的解在中间状态，比如dp的最大值不一定在结尾，可能在中间==
 
+#### 最大回文子串问题
+
+HJ32 密码截取
+```python
+def longest_palindrome_dp(s):
+    n = len(s)
+    if n == 0:
+        return ""
+    
+    # dp[i][j] 表示 s[i:j+1] 是否是回文
+    dp = [[False] * n for _ in range(n)]
+    
+    # 初始化
+    start = 0  # 记录最长回文子串的起始位置
+    max_len = 1  # 记录最长回文子串的长度
+    
+    # 每个单个字符都是回文
+    for i in range(n):
+        dp[i][i] = True
+    
+    # 遍历所有子串的长度从 2 开始
+    for length in range(2, n + 1):
+        for i in range(n - length + 1):
+            j = i + length - 1  # 计算子串的右边界 j
+            if s[i] == s[j]:
+                if length == 2:  # 特殊处理长度为 2 的子串
+                    dp[i][j] = True
+                else:
+                    dp[i][j] = dp[i + 1][j - 1]
+            else:
+                dp[i][j] = False
+            
+            # 如果找到一个更长的回文子串，更新起始位置和长度
+            if dp[i][j] and length > max_len:
+                start = i
+                max_len = length
+    
+    # 返回最长回文子串
+    return s[start:start + max_len]
+
+
+```
+
+不能按行列进行求dp，而是要用==子串长度==同开始序号遍历，j结尾序号求之。因为回文与否是从短串转移到长串。
 #### 多维DP
 ##### 三角形最小路径和问题
 遍历顺序，每行应该从右向左遍历，才能用一维数组优化空间，因为当前i是由i和i-1决定，i最右边有边界
