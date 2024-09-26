@@ -378,25 +378,38 @@ for line in sys.stdin:
 
 ```
 
-### 链表反转
-- 链表问题
-	- 反转，抛弃以前用的尾插吧
-```go
-pre = None// 记录pre和nxt，将cur逐渐连至pre，后移pre，cur，nxt
-cur = head
-while cur!=nil {
-	nxt := cur.Next
-	cur.next = pre
-	pre = cur
-	cur = nxt
-}
-return pre
-```
+### 链表
 
+一些问题可以用python的list实现链表
+比如，HJ48 从单向链表中删除指定值的节点。
 
 ```python
+l = input().split()
+	head = l[1]
+	rm = l[-1]
+	l = l[2:-1]
+	res = [head]
+	for i in range(0, len(l), 2):
+		a = l[i]
+		b = l[i+1]
+		res.insert(res.index(b)+1, a)
+
+	res.remove(rm)
+	print(' '.join(res)+" ")
+        
+```
+
+- 链表问题
+	- 反转，抛弃以前用的尾插吧
+
+```python
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
 # 建议写成闭包函数，无需返回任何值，两边结点已经反转
-def reverseList(head: ListNode):
+def reverseList(head: Node):
 	pre = None # 
 	cur = head
 	while cur:
@@ -954,6 +967,61 @@ class Solution:
 
 ### 图&回溯
 
+#### 迷宫问题
+定义一个二维数组 N*M ，如 5 × 5 数组下所示： int maze[5][5] = { 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, }; 它表示一个迷宫，其中的1表示墙壁，0表示可以走的路，只能横着走或竖着走，不能斜着走，要求编程序找出从左上角到右下角的路线。入口点为[0,0],既第一格是可以走的路
+```python
+def is_valid_move(maze, x, y, visited):
+    return (0 <= x < len(maze) and
+            0 <= y < len(maze[0]) and
+            maze[x][y] == 0 and
+            not visited[x][y])
+
+def dfs(maze, x, y, path, visited):
+    if x == len(maze) - 1 and y == len(maze[0]) - 1:
+        path.append((x, y))
+        return True
+
+    # 方向数组，分别表示下、上、右、左
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    visited[x][y] = True
+    path.append((x, y))
+
+    for dx, dy in directions:
+        new_x, new_y = x + dx, y + dy
+        if is_valid_move(maze, new_x, new_y, visited):
+            if dfs(maze, new_x, new_y, path, visited):
+                return True
+
+    # 回溯
+    visited[x][y] = False
+    path.pop()
+    return False
+
+def find_path(maze):
+    visited = [[False for _ in range(len(maze[0]))] for _ in range(len(maze))]
+    path = []
+    if dfs(maze, 0, 0, path, visited):
+        return path
+    else:
+        return []
+
+# 示例迷宫
+maze = [
+    [0, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0],
+]
+
+path = find_path(maze)
+print("路径:", path)
+
+```
+
+- 经典dfs，visited矩阵，directions
+- 唯一路径，用bool返回值维护是否目标结果状态，无法得到正确状态，必须每次回溯，重置visit
+
 #### 全排列
 ```python
 class Solution:
@@ -1144,6 +1212,38 @@ class Solution:
         traceback(0, target)
         return ans
 ```
+
+
+#### 称砝码
+```python
+# 
+combs = set()
+
+def count_comb(cur, ns):
+    combs.add(cur)
+    for i, num in enumerate(ns):
+        if num > 0:
+            ns[i] -= 1
+            count_comb(cur+weights[i], ns)
+            ns[i] += 1
+count_comb(0, nums)
+
+m = weights
+x = nums
+amount = []
+weights = {
+    0,
+}
+for i in range(n):
+    for j in range(x[i]):
+        amount.append(m[i])
+
+for i in amount:
+    for j in list(weights):
+        weights.add(i + j)
+print(len(weights))
+```
+理论分析，上面好，但实际分析下面不会超时
 
 
 #### 括号生成
