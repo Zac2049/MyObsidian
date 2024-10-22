@@ -378,6 +378,25 @@ for line in sys.stdin:
 
 ```
 
+### 杂项，排序，字符串，双指针等
+
+根据维基百科上 h 指数的定义：`h` 代表“高引用次数” ，一名科研人员的 `h` **指数** 是指他（她）至少发表了 `h` 篇论文，并且 **至少** 有 `h` 篇论文被引用次数大于等于 `h` 。如果 `h` 有多种可能的值，**`h` 指数** 是其中最大的那个。
+
+```python
+def hIndex(citations):
+    citations.sort(reverse=True)  # 按照引用次数从大到小排序
+
+    h = 0
+    for i, citation in enumerate(citations, 1):
+        if citation >= i:
+            h = i  # 更新 H 指数
+        else:
+            break
+
+    return h
+```
+
+
 ### 链表
 
 一些问题可以用python的list实现链表
@@ -597,6 +616,7 @@ class Solution:
 char = 'A' 
 integer_value = ord(char)
 ```
+
 
 ### 位运算
 
@@ -849,6 +869,7 @@ class Solution:
 	            ans[i] = st[-1] - i
             st.append(i)
         return ans
+        
         # 从左到右
         for i, t in temperatures:
 	        while st and t > temperatures[st[-1]] :# 因为外循环默认保证栈有上个迭代的元素，比较即可
@@ -856,8 +877,8 @@ class Solution:
 		        ans[j] = i-j# 当前（循环条件）大于栈顶 实时更新
 		    st.append(i)
 		# 单调栈的核心是栈顶代表下个更大或者下个更小的数
-		# 从右到左 把下一个更大的数存在栈 先pop掉，再更新ans
-		# 从左向右 把没有找到的那些数存入 ans更新同pop一起
+		# 从右到左 栈里面维护的是递减的下一个更大的元素，每次迭代更新一次ans，把下一个更大的数存在栈中，中间的数pop出
+		# 从左向右 栈里面维护的是递减的未找到下一个更大元素的元素，找到大于栈顶的元素，将小于栈顶的栈内元素都弹出 ans更新同pop一起
 		# 这里的栈都是从大到小，因为求最大的元素
 ```
 
@@ -867,6 +888,26 @@ class Solution:
 > 我建议用状态机画一下
 
 > 接雨水
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        # 单调栈解决
+        ans = 0
+        n = len(height)
+        st = []
+        ans = 0
+        for i, h in enumerate(height):
+            while st and h > height[st[-1]]:
+            
+                bottom = st.pop()
+                if not st:
+                    break
+                left = st[-1]
+                ans += (i - left - 1)*(min(height[left], h) - height[bottom])
+            st.append(i)
+        return ans
+```
 
 > 滑动窗口的最大值
 
@@ -952,14 +993,14 @@ class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         n = len(nums)
         ans = 0
-        map = DefaultDict(int)
-        map[0] = 1 # 初始条件
+        mp = DefaultDict(int)
+        mp[0] = 1 # 初始条件
         pre_sum = 0
         for num in nums :
             pre_sum += num
-            if map[pre_sum - k] > 0 :
-                ans += map[pre_sum-k] 
-            map[pre_sum] += 1
+            if mp[pre_sum - k] > 0 :
+                ans += mp[pre_sum-k] 
+            mp[pre_sum] += 1
 
         return ans
 ```
@@ -1543,4 +1584,120 @@ for i in range(1, things + 1):  # 每几件物品
             # 当前价格j不能容下第i个主件时,价值为上一个物品的对应价格的价值
             result[i][j] = result[i - 1][j]
 print(result[things][money] * 10)
+```
+
+
+# 股票系列
+
+你只能选择 **某一天** 买入这只股票，并选择在 **未来的某一个不同的日子** 卖出该股票。
+
+key: 动态维护目前看到的最小值即可
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        ans = 0
+        minprice = float("inf")
+        for i in range(n):
+            ans = max(prices[i] - minprice, ans)
+            minprice = min(prices[i], minprice)
+
+        return ans
+```
+
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 **最多** 只能持有 **一股** 股票。你也可以先购买，然后在 **同一天** 出售。
+
+key: 动态规划，dp的第二维表示holding的状态
+	 注意初始化条件
+
+```python
+def maxProfit(self, prices: List[int]) -> int:
+	n = len(prices)
+	dp = [[0]*2 for _ in range(n) ]
+	dp[0][1] = -prices[0]
+
+	for i in range(1, n):
+		dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i])
+		dp[i][1] = max(dp[i-1][1], dp[i-1][0]-prices[i])
+	
+	return dp[n-1][0]
+```
+
+
+# 贪心
+
+## 跳跃1
+
+给你一个非负整数数组 `nums` ，你最初位于数组的 **第一个下标** 。数组中的每个元素代表你在该位置可以跳跃的最大长度
+
+key：贪心也有各个状态，设置好变量状态
+
+```python
+def canJump(self, nums: List[int]) -> bool:
+	n = len(nums)
+	max_reach = 0 
+	for i in range(n):
+		if i > max_reach :
+			return False
+		max_reach = max(max_reach, i+nums[i])
+
+		if max_reach >= n-1 :
+			return True
+	
+	return False
+```
+
+## 跳跃2
+
+给定一个长度为 `n` 的 **0 索引**整数数组 `nums`。初始位置为 `nums[0]`。
+
+每个元素 `nums[i]` 表示从索引 `i` 向前跳转的最大长度。换句话说，如果你在 `nums[i]` 处，你可以跳转到任意 `nums[i + j]` 处:
+
+- `0 <= j <= nums[i]` 
+- `i + j < n`
+
+返回到达 `nums[n - 1]` 的最小跳跃次数。
+
+key：贪心
+
+```python
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        pos = len(nums) -1
+        steps = 0
+        
+        while pos > 0 :
+            for i in range(pos):
+                if i + nums[i] >= pos :
+                    pos = i
+                    steps += 1
+                    break
+
+        return steps
+
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 1:
+            return 0  # 如果只有一个元素，无需跳跃
+        
+        jumps = 0  # 跳跃次数
+        current_end = 0  # 当前跳跃的边界
+        farthest = 0  # 能到达的最远位置
+
+        for i in range(n - 1):
+            # 更新能到达的最远位置
+            farthest = max(farthest, i + nums[i])
+
+            # 如果到达当前跳跃的边界
+            if i == current_end:
+                jumps += 1  # 增加跳跃次数
+                current_end = farthest  # 更新边界
+                
+                # 如果当前跳跃的最远位置已经超过最后一个位置，则直接返回结果
+                if current_end >= n - 1:
+                    break
+
+        return jumps
+        
 ```

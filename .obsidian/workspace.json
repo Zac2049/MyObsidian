@@ -16,10 +16,25 @@
                 "file": "interview/LeeCode Points.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "LeeCode Points"
+            }
+          },
+          {
+            "id": "af16eaf9e9245566",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.4"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -39,7 +54,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +71,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +81,9 @@
             "type": "leaf",
             "state": {
               "type": "starred",
-              "state": {}
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -70,7 +91,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -101,7 +124,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": false
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for LeeCode Points"
             }
           },
           {
@@ -113,7 +138,9 @@
                 "file": "interview/LeeCode Points.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from LeeCode Points"
             }
           },
           {
@@ -124,7 +151,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -134,7 +163,9 @@
               "type": "outline",
               "state": {
                 "file": "interview/LeeCode Points.md"
-              }
+              },
+              "icon": "lucide-list",
+              "title": "Outline of LeeCode Points"
             }
           },
           {
@@ -146,7 +177,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ],
@@ -168,13 +201,26 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "025e59ffcd0cac6f",
+  "active": "af16eaf9e9245566",
   "lastOpenFiles": [
-    "interview/面试标准问答.md",
     "interview/面试会议后反思&科研反思.md",
-    "interview/LeeCode Points.md",
-    "interview/LeetCode Notes.md",
     "interview/项目介绍&简历.md",
+    "interview/CV&NLP.md",
+    "interview/Docker&Kubernetes&Linux.md",
+    "interview/LeetCode Notes.md",
+    "interview/LeeCode Points.md",
+    "interview/Golang Points.md",
+    "interview/Python Points.md",
+    "interview/ML&Math.md",
+    "interview/测试开发.md",
+    "interview/计算机网络经典面试题.md",
+    "interview/面试标准问答.md",
+    "interview/数据库MySQL&Redis.md",
+    "interview/C++ Points.md",
+    "interview/面经.pdf",
+    "turingq/reID & Gesture Recognition调研.md",
+    "turingq/机器人语音文本项目：实践.md",
+    "turingq/机器人语音文本项目：调研.md",
     "工作交接情况.md",
     "dissertation&research/答辩稿.md",
     "Pasted image 20240618140825.png",
@@ -185,21 +231,9 @@
     "interview/面试2301.md",
     "interview/面试2409.md",
     "interview/面试2302.md",
-    "interview/C++ Points.md",
     "turingq/量子计算讨论纪要.md",
-    "turingq/机器人控制survey.md",
-    "turingq/机器人控制_1.md",
-    "turingq/机器人控制.md",
-    "turingq/机器人语音文本项目：实践.md",
     "pasted/Pasted image 20240807173711.png",
-    "公式.md",
-    "README.md",
-    "turingq/量子计算.md",
-    "turingq/量子计算笔记.md",
-    "random_tech_note/Jupyter.md",
-    "random_tech_note/Obsidian Template.md",
     "random_tech_note",
-    "turingq/reID & Gesture Recognition调研.md",
     "pasted/Pasted image 20240618140742.png",
     "pasted/Pasted image 20240725091213.png",
     "pasted/Pasted image 20240618140825.png",
@@ -207,7 +241,6 @@
     "pasted/Pasted image 20240301163713.png",
     "turingq",
     "pasted/Pasted image 20240103155635.png",
-    "interview/面经.pdf",
     "pasted/Pasted image 20240115000733.png",
     "pasted/Pasted image 20240103185905.png",
     "projects/cuda-programming.pdf",
