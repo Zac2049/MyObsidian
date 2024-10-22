@@ -198,8 +198,13 @@ def binary_search(arr, target):
 	- 旋转数组的最小值，染色规则类似峰顶，mid和最后一个元素比较，mid < last，min in [0, mid]，else min in (mid, last]
 
 
-### Python points
+###  Points
 
+#### 向上取整
+```python
+a//b
+(a+b-1)//b #向上取整
+```
 #### python排序问题
 
 HJ26 字符串排序 为例
